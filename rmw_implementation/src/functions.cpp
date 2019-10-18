@@ -370,9 +370,21 @@ RMW_INTERFACE_FN(rmw_take,
   rmw_ret_t, RMW_RET_ERROR,
   4, ARG_TYPES(const rmw_subscription_t *, void *, bool *, rmw_subscription_allocation_t *))
 
+RMW_INTERFACE_FN(rmw_init_message_sequence,
+  rmw_ret_t, RMW_RET_ERROR,
+  1, ARG_TYPES(rmw_message_sequence_t *))
+
+RMW_INTERFACE_FN(rmw_fini_message_sequence,
+  rmw_ret_t, RMW_RET_ERROR,
+  1, ARG_TYPES(rmw_message_sequence_t *))
+
+RMW_INTERFACE_FN(rmw_message_sequence_at,
+  rmw_ret_t RMW_RET_ERROR,
+  3, ARG_TYPES(const rmw_message_sequence_t *, size_t, void**))
+
 RMW_INTERFACE_FN(rmw_take_sequence,
   rmw_ret_t, RMW_RET_ERROR,
-  4, ARG_TYPES(const rmw_subscription_t *, rmw_message_sequence_t *, bool *, rmw_subscription_allocation_t *))
+  4, ARG_TYPES(const rmw_subscription_t *, rmw_message_sequence_t *, size_t, rmw_subscription_allocation_t *))
 
 RMW_INTERFACE_FN(rmw_take_with_info,
   rmw_ret_t, RMW_RET_ERROR,
@@ -383,7 +395,7 @@ RMW_INTERFACE_FN(rmw_take_with_info,
 RMW_INTERFACE_FN(rmw_take_sequence_with_info,
   rmw_ret_t, RMW_RET_ERROR,
   5,
-  ARG_TYPES(const rmw_subscription_t *, rmw_message_sequence_t *, bool *, rmw_message_info_sequence_t *,
+  ARG_TYPES(const rmw_subscription_t *, rmw_message_sequence_t *, size_t, rmw_message_info_sequence_t *,
   rmw_subscription_allocation_t *))
 
 RMW_INTERFACE_FN(rmw_take_serialized_message,
